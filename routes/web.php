@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScientificWorkController;
+use App\Http\Controllers\AreaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,6 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         ->name('dashboard');
 
     Route::resource('scientificwork', ScientificWorkController::class);
+    Route::resource('area', AreaController::class);
 });
 
 Route::middleware('auth')->group(function () {

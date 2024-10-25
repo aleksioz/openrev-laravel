@@ -1,6 +1,6 @@
 export default function ApplicationLogo(props) {
     return (
-            <img src="images/logos.79603f49.png" alt="Application Logo" />
+            <img src="/images/logos.79603f49.png" alt="Application Logo" />
 
         // <svg
         //     {...props}

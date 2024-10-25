@@ -13,7 +13,13 @@ class AreaController extends Controller
      */
     public function index()
     {
-        //
+        $query = Area::query();
+
+        $areas = $query->paginate(10);
+
+        return inertia("Areas/Index", [
+            'all' => $areas
+        ]);
     }
 
     /**
@@ -37,7 +43,13 @@ class AreaController extends Controller
      */
     public function show(Area $area)
     {
-        //
+        // $query = Area::query( $area );
+
+        // $areas = $query->paginate(10);
+
+        return inertia("Areas/Index", [
+            'area' => $area
+        ]);
     }
 
     /**

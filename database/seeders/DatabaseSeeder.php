@@ -30,6 +30,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'Matematika',
             'hidden' => false
         ]);
+        Area::factory()->create([
+            'id' => 2,
+            'name' => 'Fizika',
+            'hidden' => true
+        ]);
+        Area::factory()->create([
+            'id' => 3,
+            'name' => 'Hemija',
+            'hidden' => false
+        ]);
 
         Subarea::factory()->create([
             'id' => 1, 

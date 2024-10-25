@@ -1,6 +1,10 @@
 import Dropdown from "./Dropdown";
+import { usePage } from '@inertiajs/react';
 
 export default function MainMenu() {
+
+	const areas = usePage().props.areas;
+
 	return (
 		<div className="hidden sm:ms-6 sm:flex sm:items-center">
 			<div className="relative ms-3">
@@ -48,6 +52,17 @@ export default function MainMenu() {
 						>
 							Ordered Works
 						</Dropdown.Link>
+
+						{
+							areas.map((area, index) => (
+								<Dropdown.Link
+									key={index}
+									href={route('area.show', area.id)}
+								>
+									{area.name}
+								</Dropdown.Link>
+							))
+						}
 						
 					</Dropdown.Content>
 				</Dropdown>
