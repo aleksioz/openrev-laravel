@@ -18,7 +18,7 @@ class ScientificWorkFactory extends Factory
     {
 
         return [
-            'subarea_id' => 1,
+            'subarea_id' => fake()->numberBetween(1, 2),
             'title' => fake()->realText(20),
             'publish_date' => fake()->dateTimeThisMonth()->format('Y-m-d H:i:s'),
             'abstract' => fake()->realText(200),

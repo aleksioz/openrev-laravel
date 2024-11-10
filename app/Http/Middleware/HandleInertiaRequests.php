@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use App\Models\Area;
+use App\Models\Subarea;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -35,7 +36,18 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'areas' => Area::all()->toArray()
+            'areas' => array_map(function ($area) {
+                    return [
+                        'id' => $area['id'],
+                        'name' => $area['name'],
+                        'subareas' => array_map(function ($subarea) {
+                            return [
+                                'id' => $subarea['id'],
+                                'name' => $subarea['name'],
+                            ];
+                        }, Subarea::where('area_id', $area['id'])->get()->toArray())
+                    ];
+                }, Area::all()->toArray())
         ];
     }
 }

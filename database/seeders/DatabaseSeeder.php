@@ -48,6 +48,13 @@ class DatabaseSeeder extends Seeder
             'hidden' => false
         ]);
 
+        Subarea::factory()->create([
+            'id' => 2, 
+            'name' => 'Algebra', 
+            'area_id' => 1, 
+            'hidden' => false
+        ]);
+
         ScientificWork::factory(100)->create();
     }
 }

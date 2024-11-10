@@ -37,7 +37,9 @@ class SubareaController extends Controller
      */
     public function show(Subarea $subarea)
     {
-        //
+        return inertia("Subareas/Index", [
+            'subarea' => $subarea
+        ]);
     }
 
     /**

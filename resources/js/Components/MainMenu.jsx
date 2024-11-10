@@ -49,18 +49,33 @@ export default function MainMenu() {
 					<Dropdown.Content>
 						<Dropdown.Link
 							href={route('scientificwork.index')}
+							key={0}
 						>
 							Ordered Works
 						</Dropdown.Link>
 
 						{
 							areas.map((area, index) => (
-								<Dropdown.Link
-									key={index}
-									href={route('area.show', area.id)}
-								>
-									{area.name}
-								</Dropdown.Link>
+								<div key={index}>
+									<Dropdown.Link 
+										href={route('area.show', area.id)}
+										key={50+index}
+									>
+										{area.name}
+									</Dropdown.Link>
+									
+									{
+										area.subareas.map((subarea, index) => (
+											<Dropdown.Link 
+												href={route('subarea.show', subarea.id)}
+												key={100+index}
+												className="pl-6"
+											>
+												{subarea.name}
+											</Dropdown.Link>
+										))
+									}
+								</div>
 							))
 						}
 						

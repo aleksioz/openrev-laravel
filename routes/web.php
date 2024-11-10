@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScientificWorkController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\SubareaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     Route::resource('scientificwork', ScientificWorkController::class);
     Route::resource('area', AreaController::class);
+    Route::resource('subarea', SubareaController::class);
 });
 
 Route::middleware('auth')->group(function () {
