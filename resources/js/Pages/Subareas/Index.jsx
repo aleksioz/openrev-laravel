@@ -1,13 +1,13 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
-export default function Index(subarea) {
+export default function Index(data) {
 
 	return (
 		<AuthenticatedLayout 
 			header={
 				<h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-					Areas
+					{data.subarea.name}
 				</h2>
 			}
 		>
@@ -19,7 +19,7 @@ export default function Index(subarea) {
 						<div className="p-6 text-gray-900 dark:text-gray-100 flex flex-wrap justify-center">
 
 							{
-								console.log(subarea)
+								console.log(data)
 								
 							}
 

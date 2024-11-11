@@ -4,6 +4,7 @@ import { usePage } from '@inertiajs/react';
 export default function MainMenu() {
 
 	const areas = usePage().props.areas;
+	const pathname = usePage().url;
 
 	return (
 		<div className="hidden sm:ms-6 sm:flex sm:items-center">
@@ -60,8 +61,9 @@ export default function MainMenu() {
 									<Dropdown.Link 
 										href={route('area.show', area.id)}
 										key={50+index}
+										className={route('area.show', area.id).includes(pathname) ? 'bg-violet-700' : ''}
 									>
-										{area.name}
+										{area.name}										
 									</Dropdown.Link>
 									
 									{
@@ -69,7 +71,7 @@ export default function MainMenu() {
 											<Dropdown.Link 
 												href={route('subarea.show', subarea.id)}
 												key={100+index}
-												className="pl-6"
+												className={route('subarea.show', subarea.id).includes(pathname) ? 'pl-6 bg-violet-700' : 'pl-6'}
 											>
 												{subarea.name}
 											</Dropdown.Link>
