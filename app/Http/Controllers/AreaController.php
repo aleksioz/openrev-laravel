@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAreaRequest;
 use App\Http\Requests\UpdateAreaRequest;
 use App\Models\Area;
+use App\Models\ScientificWork;
+use App\Models\Subarea;
 
 class AreaController extends Controller
 {
@@ -43,12 +45,16 @@ class AreaController extends Controller
      */
     public function show(Area $area)
     {
-        // $query = Area::query( $area );
 
-        // $areas = $query->paginate(10);
+        $subareas = Subarea::query()->where('area_id', $area->id);
+
+        $query = ScientificWork::query()->whereIn('subarea_id', $subareas->pluck('id'));
+
+        $scientificWorks = $query->paginate(10);
 
         return inertia("Areas/Index", [
-            'area' => $area
+            'area' => $area,
+            'all' => $scientificWorks,
         ]);
     }
 

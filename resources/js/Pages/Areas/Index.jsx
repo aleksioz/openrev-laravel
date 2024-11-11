@@ -1,13 +1,16 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import ScientificWork from "@/Components/ScientificWork";
+import { all } from "axios";
 
-export default function Index(area) {
+
+export default function Index(allData) {
 
 	return (
 		<AuthenticatedLayout 
 			header={
 				<h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-					Areas
+					{allData.area.name}
 				</h2>
 			}
 		>
@@ -19,8 +22,15 @@ export default function Index(area) {
 						<div className="p-6 text-gray-900 dark:text-gray-100 flex flex-wrap justify-center">
 
 							{
-								console.log(area)
-								
+								allData.all.data.map( (scientificwork ) => ( 
+									<ScientificWork 
+										title={scientificwork.title} 
+										author={scientificwork.author} 
+										info={scientificwork.info}
+										key={scientificwork.id}
+										className="mr-4 mt-4"
+									/>
+								))	
 							}
 
 								{ // JSON.stringify(scientificworks, undefined, 2) 

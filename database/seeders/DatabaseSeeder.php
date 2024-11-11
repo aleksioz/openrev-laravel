@@ -55,6 +55,6 @@ class DatabaseSeeder extends Seeder
             'hidden' => false
         ]);
 
-        ScientificWork::factory(100)->create();
+        ScientificWork::factory(25)->create();
     }
 }
