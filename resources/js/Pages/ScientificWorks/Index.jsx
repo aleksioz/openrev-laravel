@@ -2,7 +2,7 @@ import ScientificWork from "@/Components/ScientificWork";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
-export default function Index(scientificworks) {
+export default function Index(scientificwork) {
 
 	return (
 		<AuthenticatedLayout 
@@ -20,16 +20,7 @@ export default function Index(scientificworks) {
 						<div className="p-6 text-gray-900 dark:text-gray-100 flex flex-wrap justify-center">
 
 							{
-								scientificworks.all.data.map( (scientificwork ) => ( 
-									<ScientificWork 
-										title={scientificwork.title} 
-										author={scientificwork.author} 
-										info={scientificwork.info}
-										key={scientificwork.id}
-										className="mr-4 mt-4"
-									/>
-								))
-								
+								console.log(scientificwork)	
 							}
 
 								{ // JSON.stringify(scientificworks, undefined, 2) 

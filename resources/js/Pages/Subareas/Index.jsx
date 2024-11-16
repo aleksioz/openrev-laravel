@@ -26,6 +26,7 @@ export default function Index(allData) {
 										author={scientificwork.author} 
 										info={scientificwork.info}
 										key={scientificwork.id}
+										id={scientificwork.id}
 										className="mr-4 mt-4"
 									/>
 								))	

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreScientificWorkRequest;
 use App\Http\Requests\UpdateScientificWorkRequest;
+use App\Models\Area;
 use App\Models\ScientificWork;
+use App\Models\Subarea;
+use App\Models\User;
 
 class ScientificWorkController extends Controller
 {
@@ -42,9 +45,23 @@ class ScientificWorkController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ScientificWork $scientificWork)
+    public function show(int $sciWorkIndex)
     {
+        $scientificWork = ScientificWork::find($sciWorkIndex);
+        $subarea = Subarea::find($scientificWork->subarea_id);
+        $area = Area::find($subarea->area_id);
         
+        $data = [
+            'title' => $scientificWork->title,
+            'author' => User::find($scientificWork->user_id)->name,
+            'abstract' => $scientificWork->abstract,
+            'keywords' => $scientificWork->keywords,
+            'file' => $scientificWork->pdf_url,
+            'publishDate' => $scientificWork->publish_date,
+            'category' => $area->name . ' / ' . $subarea->name,
+        ];
+
+        return inertia("ScientificWorks/Show", $data);
     }
 
     /**
