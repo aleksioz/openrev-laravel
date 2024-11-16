@@ -20,15 +20,14 @@ export default function Index(sciWorkData) {
 					<div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
 						<div className="p-6 text-gray-900 dark:text-gray-100 flex flex-wrap justify-center">
 
-
-							<div className="w-full max-w-3xl mx-auto flex items-center">
+							<div className="w-full max-w-3xl mx-auto flex flex-col sm:flex-row items-center">
 								
-								<Link href={sciWorkData.file} target="_blank" rel="noopener noreferrer" className="inline-block" style={{ width: '200px' }}>
-									<img src="/images/pdf_image.png" alt="PDF" />
+								<Link href={sciWorkData.file} target="_blank" rel="noopener noreferrer" className="mb-4 sm:mb-0" >
+									<img src="/images/pdf_image.png" alt="PDF" style={{ maxWidth: '150px' }}/>
 									<p className="text-center mt-2">Click to PDF</p>
 								</Link>
 
-								<div className="ml-4 flex items-center">
+								<div className="sm:ml-4 flex items-center">
 									<table className="table-auto">
 										<tbody>
 											<tr>
