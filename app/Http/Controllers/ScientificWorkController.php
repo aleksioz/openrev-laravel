@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreScientificWorkRequest;
 use App\Http\Requests\UpdateScientificWorkRequest;
 use App\Models\Area;
+use App\Models\Review;
 use App\Models\ScientificWork;
 use App\Models\Subarea;
 use App\Models\User;
@@ -50,7 +51,10 @@ class ScientificWorkController extends Controller
         $scientificWork = ScientificWork::find($sciWorkIndex);
         $subarea = Subarea::find($scientificWork->subarea_id);
         $area = Area::find($subarea->area_id);
-        
+        $reviews = Review::where('scientific_work_id', $scientificWork->id)->get();
+
+        dd($reviews);
+
         $data = [
             'title' => $scientificWork->title,
             'author' => User::find($scientificWork->user_id)->name,

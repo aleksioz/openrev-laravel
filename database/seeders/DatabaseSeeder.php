@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Area;
+use App\Models\Review;
 use App\Models\ScientificWork;
 use App\Models\Subarea;
 use App\Models\User;
@@ -22,6 +23,13 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'name' => 'Aleksa',
             'email' => 'aleksa.mejl@gmail.com',
+            'password' => bcrypt('Kobredabre1'),
+        ]);
+
+        User::factory()->create([
+            'id' => 2,
+            'name' => 'Bleksa',
+            'email' => 'bleksa.mejl@gmail.com',
             'password' => bcrypt('Kobredabre1'),
         ]);
 
@@ -56,5 +64,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         ScientificWork::factory(25)->create();
+        Review::factory(40)->create();
     }
 }
