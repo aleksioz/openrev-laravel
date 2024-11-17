@@ -65,7 +65,7 @@ export default function Index(sciWorkData) {
 					
 					<br />
 
-					<div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+					<div className="pt-6 overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
 						
 							<h3 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200 text-center">
 								Reviews
