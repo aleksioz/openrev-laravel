@@ -5,6 +5,8 @@ export default function Index(sciWorkData) {
 
 	const tableRowHeadClass = "align-top text-right pr-4 font-semibold text-gray-500";
 
+	console.log(sciWorkData);
+
 	return (
 		<AuthenticatedLayout 
 			header={
@@ -60,8 +62,47 @@ export default function Index(sciWorkData) {
 						</div>
 								
 					</div>
+					
+					<br />
+
+					<div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
+						
+							<h3 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200 text-center">
+								Reviews
+							</h3>
+							
+							{ sciWorkData.reviews && sciWorkData.reviews.length > 0 ? (
+								<div className="p-6 text-gray-900 dark:text-gray-100">
+								<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+									{ sciWorkData.reviews.map((review, index) => (
+										<div key={index} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+											<table className="table-auto w-full">
+												<tbody>
+													<tr>
+														<td className={ tableRowHeadClass } >REVIEWER:</td>
+														<td>{review.user_id}</td>
+													</tr>
+													<tr>
+														<td className={ tableRowHeadClass } >ASSESSMENT:</td>
+														<td>{review.assessment}</td>
+													</tr>
+													<tr>
+														<td className={ tableRowHeadClass } >REVIEW:</td>
+														<td>{review.review}</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									))}
+								</div>
+								</div>
+							) : (
+								<p className="mt-4 text-center">No reviews available.</p>
+							)}
+
+						</div>
+					</div>
 				</div>
-			</div>
 
 		</AuthenticatedLayout>
 	)

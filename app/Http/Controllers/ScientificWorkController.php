@@ -53,7 +53,6 @@ class ScientificWorkController extends Controller
         $area = Area::find($subarea->area_id);
         $reviews = Review::where('scientific_work_id', $scientificWork->id)->get();
 
-        dd($reviews);
 
         $data = [
             'title' => $scientificWork->title,
@@ -63,6 +62,7 @@ class ScientificWorkController extends Controller
             'file' => $scientificWork->pdf_url,
             'publishDate' => $scientificWork->publish_date,
             'category' => $area->name . ' / ' . $subarea->name,
+            'reviews' => $reviews
         ];
 
         return inertia("ScientificWorks/Show", $data);
