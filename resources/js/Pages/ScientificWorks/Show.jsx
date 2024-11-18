@@ -25,7 +25,7 @@ export default function Index(sciWorkData) {
 		>
 			<Head title="Scientific Work" />
 
-			<div className="py-12">
+			<div className="py-8">
 				<div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
 					<div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
 						<div className="p-6 text-gray-900 dark:text-gray-100 flex flex-wrap justify-center">
@@ -98,11 +98,16 @@ export default function Index(sciWorkData) {
 												<tbody>
 													<tr>
 														<td className={ tableRowHeadClass } >REVIEWER:</td>
-														<td>{review.user_id}</td>
+														<td>{review.user}</td>
+														<td rowSpan="4" width="33%">REVIEW QUALITY</td>
 													</tr>
 													<tr>
 														<td className={ tableRowHeadClass } >ASSESSMENT:</td>
 														<td>{review.assessment}</td>
+													</tr>
+													<tr>
+														<td className={ tableRowHeadClass } >RECOMMEND:</td>
+														<td>{review.recommend ? 'Yes' : 'No'}</td>
 													</tr>
 													<tr>
 														<td className={ tableRowHeadClass } >REVIEW:</td>

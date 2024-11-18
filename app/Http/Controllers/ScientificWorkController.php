@@ -53,6 +53,10 @@ class ScientificWorkController extends Controller
         $area = Area::find($subarea->area_id);
         $reviews = Review::where('scientific_work_id', $scientificWork->id)->get();
 
+        foreach ($reviews as $review) {
+            $review->user = User::find($review->user_id)->name;
+            unset($review->user_id);
+        }
 
         $data = [
             'title' => $scientificWork->title,
