@@ -115,7 +115,7 @@ export default function Index(sciWorkData) {
 								</div>
 								</div>
 							) : (
-								<p className="mt-4 text-center">No reviews available.</p>
+								<p className="text-xl mt-4 text-center font-semibold leading-tight text-gray-800 dark:text-gray-200">No reviews available.</p>
 							)}
 
 						</div>
