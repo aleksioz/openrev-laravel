@@ -9,6 +9,12 @@ export default function Index(sciWorkData) {
 
 	console.log(sciWorkData);
 
+	const hasReviews = sciWorkData.reviews && sciWorkData.reviews.length > 0;
+
+	const avg = hasReviews ? (sciWorkData.reviews.reduce(
+		(accumulator, currentValue) => accumulator + currentValue.assessment, 0
+	) / sciWorkData.reviews.length).toFixed(1) : 0;
+
 	return (
 		<AuthenticatedLayout 
 			header={
@@ -61,7 +67,7 @@ export default function Index(sciWorkData) {
 											</tr>
 											<tr>
 												<td className={ tableRowHeadClass } >RATING:</td>
-												<td><Rating ratingValue={3} stars={5} size={20} /></td>
+												<td>{avg} &nbsp; <Rating style={{}} initialValue={ avg } stars={5} allowFraction={true} size={20} /></td>
 											</tr>
 										</tbody>
 									</table>
@@ -82,10 +88,11 @@ export default function Index(sciWorkData) {
 								Reviews
 							</h3>
 							
-							{ sciWorkData.reviews && sciWorkData.reviews.length > 0 ? (
+							{ hasReviews ? (
 								<div className="p-6 text-gray-900 dark:text-gray-100">
 								<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 									{ sciWorkData.reviews.map((review, index) => (
+
 										<div key={index} className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
 											<table className="table-auto w-full">
 												<tbody>
