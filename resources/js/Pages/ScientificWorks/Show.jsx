@@ -1,5 +1,7 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
+import { Rating } from 'react-simple-star-rating'
+
 
 export default function Index(sciWorkData) {
 
@@ -24,10 +26,15 @@ export default function Index(sciWorkData) {
 
 							<div className="w-full max-w-3xl mx-auto flex flex-col sm:flex-row items-center">
 								
-								<Link href={sciWorkData.file} target="_blank" rel="noopener noreferrer" className="mb-4 sm:mb-0" >
-									<img src="/images/pdf_image.png" alt="PDF" style={{ maxWidth: '150px' }}/>
-									<p className="text-center mt-2">Click to PDF</p>
-								</Link>
+
+								<div className="mb-4 sm:mb-0">
+								
+									<Link href={sciWorkData.file} target="_blank" rel="noopener noreferrer" >
+										<img src="/images/pdf_image.png" alt="PDF" style={{ maxWidth: '150px' }}/>
+										<p className="text-center mt-2">Click to PDF</p>
+									</Link>
+
+								</div>
 
 								<div className="sm:ml-4 flex items-center">
 									<table className="table-auto">
@@ -51,6 +58,10 @@ export default function Index(sciWorkData) {
 											<tr>
 												<td className={ tableRowHeadClass } >PUBLISHED:</td>
 												<td>{sciWorkData.publishDate}</td>
+											</tr>
+											<tr>
+												<td className={ tableRowHeadClass } >RATING:</td>
+												<td><Rating ratingValue={3} stars={5} size={20} /></td>
 											</tr>
 										</tbody>
 									</table>
