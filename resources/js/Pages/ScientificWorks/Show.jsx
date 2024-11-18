@@ -67,7 +67,7 @@ export default function Index(sciWorkData) {
 											</tr>
 											<tr>
 												<td className={ tableRowHeadClass } >RATING:</td>
-												<td>{avg} &nbsp; <Rating style={{}} initialValue={ avg } stars={5} allowFraction={true} size={20} /></td>
+												<td>{avg} &nbsp; <Rating readonly={true} initialValue={ avg } stars={5} allowFraction={true} size={20} /></td>
 											</tr>
 										</tbody>
 									</table>
