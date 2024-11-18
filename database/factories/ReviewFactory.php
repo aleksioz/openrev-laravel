@@ -19,7 +19,7 @@ class ReviewFactory extends Factory
         return [
                 'review' => fake()->realText(60),
                 'assessment' => fake()->numberBetween(1, 5),
-                'recomend' => fake()->boolean(),
+                'recommend' => fake()->boolean(),
                 'user_id' => fake()->numberBetween(1, 2),
                 'scientific_work_id' => fake()->numberBetween(1, 20)
         ];

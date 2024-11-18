@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('review');
             $table->smallInteger('assessment');
-            $table->boolean('recomend');
+            $table->boolean('recommend');
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('scientific_work_id')->constrained('scientific_works');
         });
