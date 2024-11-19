@@ -1,3 +1,4 @@
+import ReviewQuality from "@/Components/ReviewQuality";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, Link } from "@inertiajs/react";
 import { Rating } from 'react-simple-star-rating'
@@ -99,7 +100,7 @@ export default function Index(sciWorkData) {
 													<tr>
 														<td className={ tableRowHeadClass } >REVIEWER:</td>
 														<td>{review.user}</td>
-														<td rowSpan="4" width="33%">REVIEW QUALITY</td>
+														<td className="align-top" rowSpan="3" width="33%"><ReviewQuality /></td>
 													</tr>
 													<tr>
 														<td className={ tableRowHeadClass } >ASSESSMENT:</td>
@@ -111,7 +112,7 @@ export default function Index(sciWorkData) {
 													</tr>
 													<tr>
 														<td className={ tableRowHeadClass } >REVIEW:</td>
-														<td>{review.review}</td>
+														<td colSpan="2">{review.review}</td>
 													</tr>
 												</tbody>
 											</table>
