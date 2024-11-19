@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Area;
 use App\Models\Review;
+use App\Models\ReviewQuality;
 use App\Models\ScientificWork;
 use App\Models\Subarea;
 use App\Models\User;
@@ -65,5 +66,6 @@ class DatabaseSeeder extends Seeder
 
         ScientificWork::factory(25)->create();
         Review::factory(40)->create();
+        ReviewQuality::factory(60)->create();
     }
 }
