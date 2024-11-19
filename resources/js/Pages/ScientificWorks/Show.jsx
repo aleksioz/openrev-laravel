@@ -100,7 +100,9 @@ export default function Index(sciWorkData) {
 													<tr>
 														<td className={ tableRowHeadClass } >REVIEWER:</td>
 														<td>{review.user}</td>
-														<td className="align-top" rowSpan="3" width="33%"><ReviewQuality /></td>
+														<td className="align-top" rowSpan="3" width="33%">
+															<ReviewQuality avgAssessment={review.avgQuality} />
+														</td>
 													</tr>
 													<tr>
 														<td className={ tableRowHeadClass } >ASSESSMENT:</td>
