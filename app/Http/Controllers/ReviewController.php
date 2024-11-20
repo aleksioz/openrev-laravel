@@ -29,7 +29,7 @@ class ReviewController extends Controller
      */
     public function store(StoreReviewRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
