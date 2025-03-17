@@ -4,8 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16d48cbb115650fb68d781ae43053593",
+    "content-hash": "ae9b6ad6eee5d87c7d59fe957d1863ec",
     "packages": [
+        {
+            "name": "alexa/mypackage",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../packages/alexa/mypackage",
+                "reference": "1dc17f92297f1911c6780ecaf97fb6e11938840c"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alexa\\Mypackage\\MyPackageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alexa\\Mypackage\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "aleksioz",
+                    "email": "aleksa.mejl@gmail.com"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",
@@ -8102,7 +8133,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "alexa/mypackage": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
