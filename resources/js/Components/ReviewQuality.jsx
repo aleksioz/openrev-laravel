@@ -27,7 +27,7 @@ export default function ReviewQuality({
 				Review Quality
 			</h4>
 			<div>
-				<Rating onClick={handleRating} initialValue={ data.avgAssessment || '-' } stars={5} allowFraction={true} size={15} /> &nbsp;&nbsp;&nbsp;
+				<Rating onClick={handleRating} initialValue={ data.avgAssessment || 0 } stars={5} allowFraction={true} size={15} /> &nbsp;&nbsp;&nbsp;
 				<span className="text-gray-800 dark:text-gray-200">{ data.avgAssessment ? data.avgAssessment.toFixed(2) : '-' }</span>
 			</div>
 		</div>
