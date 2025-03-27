@@ -5,6 +5,8 @@ namespace App\Models;
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class ScientificWork extends Model
 {
@@ -20,7 +22,7 @@ class ScientificWork extends Model
 	];
 
 	public function getAuthorAttribute() {
-		return User::find($this->user_id)->name;
+		return DB::table('users')->where('id', $this->user_id)->value('name');
 	}
 
 	public function getInfoAttribute() {
