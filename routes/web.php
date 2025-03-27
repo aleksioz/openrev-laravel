@@ -9,6 +9,7 @@ use App\Models\ReviewQuality;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\DashboardController;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -26,8 +27,8 @@ Route::redirect('/', '/dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function() {
-    Route::get('/dashboard', fn() =>  Inertia::render('Dashboard'))
-        ->name('dashboard');
+    // Route::get('/dashboard', fn() =>  Inertia::render('Dashboard'))->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('scientificwork', ScientificWorkController::class);
     Route::resource('area', AreaController::class);

@@ -19,7 +19,27 @@ export default function Dashboard() {
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
                            
-                            <ScientificWork />
+                            <div className="mb-6 text-center">
+                                <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                                    Filtered by most popular
+                                </h3>
+                                <div className="flex justify-center gap-4 mt-4">
+                                    <ScientificWork />
+                                    <ScientificWork />
+                                    <ScientificWork />
+                                </div>
+                            </div>
+                            
+                            <div className="text-center">
+                                <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                                    Filtered by most recent
+                                </h3>
+                                <div className="flex justify-center gap-4 mt-4">
+                                    <ScientificWork />
+                                    <ScientificWork />
+                                    <ScientificWork />
+                                </div>
+                            </div>
                             
                         </div>
                     </div>
