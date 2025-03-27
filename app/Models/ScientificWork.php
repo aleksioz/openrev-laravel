@@ -13,7 +13,17 @@ class ScientificWork extends Model
 	// Disable timestamps
 	public $timestamps = false;
 
+	protected $appends = ['author', 'info'];
+
 	protected $fillable = [
 		'subarea_id', 'title', 'publish_date', 'abstract', 'keywords', 'pdf_url', 'user_id'
 	];
+
+	public function getAuthorAttribute() {
+		return User::find($this->user_id)->name;
+	}
+
+	public function getInfoAttribute() {
+		return $this->publish_date;
+	}
 }
