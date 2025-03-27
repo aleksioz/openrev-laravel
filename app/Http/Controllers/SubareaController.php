@@ -43,13 +43,6 @@ class SubareaController extends Controller
         $scientificWorks = ScientificWork::query()->where('subarea_id', $subarea->id);
         $scientificWorks = $scientificWorks->paginate(10);
 
-        foreach ($scientificWorks as $scientificWork) {
-            $scientificWork->author = User::find($scientificWork->user_id)->name;
-            unset($scientificWork->user_id);
-            $scientificWork->info = $scientificWork->publish_date;
-        }
-
-
         return inertia("Subareas/Index", [
             'subarea' => $subarea,
             'all' => $scientificWorks, 
