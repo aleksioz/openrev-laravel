@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSubareaRequest;
 use App\Http\Requests\UpdateSubareaRequest;
 use App\Models\ScientificWork;
+use App\Models\User;
 use App\Models\Subarea;
 
 class SubareaController extends Controller
@@ -40,8 +41,14 @@ class SubareaController extends Controller
     {
 
         $scientificWorks = ScientificWork::query()->where('subarea_id', $subarea->id);
-
         $scientificWorks = $scientificWorks->paginate(10);
+
+        foreach ($scientificWorks as $scientificWork) {
+            $scientificWork->author = User::find($scientificWork->user_id)->name;
+            unset($scientificWork->user_id);
+            $scientificWork->info = $scientificWork->publish_date;
+        }
+
 
         return inertia("Subareas/Index", [
             'subarea' => $subarea,
