@@ -10,6 +10,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BrowseController;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -21,6 +22,11 @@ use App\Http\Controllers\DashboardController;
 // });
 
 Route::redirect('/', '/dashboard');
+
+// Always available
+Route::get('/ordered-works', [BrowseController::class, 'orderedWorks'])->name('ordered-works');
+Route::get('/top-reviewers', [BrowseController::class, 'topReviewers'])->name('top-reviewers');
+Route::get('/top-authors', [BrowseController::class, 'topAuthors'])->name('top-authors');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

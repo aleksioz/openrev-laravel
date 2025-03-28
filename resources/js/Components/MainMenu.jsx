@@ -48,11 +48,28 @@ export default function MainMenu() {
 					</Dropdown.Trigger>
 
 					<Dropdown.Content>
+						
+						<span className="pl-4 text-gray-900 dark:text-gray-100">Browse</span>
 						<Dropdown.Link
-							href={route('scientificwork.index')}
+							href={route('ordered-works')}
 							key={0}
+							className={route('ordered-works').includes(pathname) ? 'pl-6 bg-violet-700' : 'pl-6'}
 						>
 							Ordered Works
+						</Dropdown.Link>
+						<Dropdown.Link
+							href={route('top-reviewers')}
+							key={1}
+							className={route('top-reviewers').includes(pathname) ? 'pl-6 bg-violet-700' : 'pl-6'}
+						>
+							Top Reviewers
+						</Dropdown.Link>
+						<Dropdown.Link
+							href={route('top-authors')}
+							key={2}
+							className={route('top-authors').includes(pathname) ? 'pl-6 bg-violet-700' : 'pl-6'}
+						>
+							Top authors
 						</Dropdown.Link>
 
 						{
