@@ -47,8 +47,6 @@ class BrowseController extends Controller
             $allReviewers[] = $user;
         }
 
-        // dd($allReviewers);
-
         return inertia("Browse", [
             'type' => 'user',
             'title' => 'Top Scientific Works', 
