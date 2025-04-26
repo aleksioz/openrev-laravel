@@ -10,6 +10,7 @@ use App\Models\ReviewQuality;
 use App\Models\ScientificWork;
 use App\Models\Subarea;
 use App\Models\User;
+use App\Services\SciDataService;
 
 class ScientificWorkController extends Controller
 {
@@ -47,39 +48,9 @@ class ScientificWorkController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $sciWorkIndex)
+    public function show(int $sciWorkIndex, SciDataService $scidata)
     {
-        $scientificWork = ScientificWork::find($sciWorkIndex);
-        $subarea = Subarea::find($scientificWork->subarea_id);
-        $area = Area::find($subarea->area_id);
-        $reviews = Review::where('scientific_work_id', $scientificWork->id)->get();
-
-        foreach ($reviews as $review) {
-            $review->user = User::find($review->user_id)->name;
-            unset($review->user_id);
-
-            $reviewQualitys = ReviewQuality::where('review_id', $review->id)->get();
-            $sumReviewQuality = 0;
-            if ( count($reviewQualitys) ) {
-                foreach ($reviewQualitys as $reviewQuality)
-                    $sumReviewQuality += $reviewQuality->assessment;
-                
-                $review->avgQuality = $sumReviewQuality / count($reviewQualitys);
-            }
-        }
-
-        $data = [
-            'title' => $scientificWork->title,
-            'author' => User::find($scientificWork->user_id)->name,
-            'abstract' => $scientificWork->abstract,
-            'keywords' => $scientificWork->keywords,
-            'file' => $scientificWork->pdf_url,
-            'publishDate' => $scientificWork->publish_date,
-            'category' => $area->name . ' / ' . $subarea->name,
-            'reviews' => $reviews
-        ];
-
-        return inertia("ScientificWorks/Show", $data);
+        return inertia("ScientificWorks/Show", $scidata->getScientificWorkData($sciWorkIndex));
     }
 
     /**
