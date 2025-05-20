@@ -11,4 +11,15 @@ class Subarea extends Model
 
     // Disable timestamps
 	public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'area_id',
+        'hidden'
+    ];
 }

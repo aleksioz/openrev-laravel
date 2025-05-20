@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('subareas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('area_id')->constrained('areas');
+            $table->foreignId('area_id')->constrained()->onDelete('cascade');
             $table->boolean('hidden')->default(false);
         });
     }
