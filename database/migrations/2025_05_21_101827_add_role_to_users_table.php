@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subareas', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('area_id')->constrained()->onDelete('cascade');
-            $table->boolean('hidden')->default(false);
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('subscriber')->after('email_verified_at'); // or wherever you want it
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subareas');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
+        });
     }
 };
