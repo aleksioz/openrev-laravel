@@ -21,6 +21,8 @@ class UserForm
                 TextInput::make('password')
                     ->password()
                     ->required(),
+                TextInput::make('role')
+                    ->required(),
             ]);
     }
 }

@@ -18,8 +18,6 @@ class FilamentAdminChecker
 
         $user = $request->user();
 
-        dump($user);
-
         if (! $user || $user->role !== 'admin') {
             abort(403, 'Access denied');
         }
