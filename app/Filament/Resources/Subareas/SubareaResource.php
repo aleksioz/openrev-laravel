@@ -18,7 +18,7 @@ class SubareaResource extends Resource
 {
     protected static ?string $model = Subarea::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::H3;
 
     public static function form(Schema $schema): Schema
     {
